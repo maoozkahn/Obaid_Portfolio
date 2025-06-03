@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obaid Ullah | Business Facilitator & Investment Liaison</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #1a3e72;
+            --secondary: #f5a623;
+            --dark: #0a1f3d;
+            --light: #f8f9fa;
+            --accent: #e74c3c;
+            --text: #333;
+            --text-light: #777;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            color: white;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        /* Background Animation */
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .bg-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: rotateBg 180s linear infinite;
+            transform: scale(1.5);
+        }
+        
+        @keyframes rotateBg {
+            0% { transform: scale(1.5) rotate(0deg); }
+            100% { transform: scale(1.5) rotate(360deg); }
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 31, 61, 0.9);
+            z-index: -1;
+        }
+        
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: rgba(255,255,255,0.8);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background: rgba(10, 31, 61, 0.95);
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--secondary);
+            display: block;
+            font-size: 2.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--secondary);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .btn:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+        
+        /* About Section */
+        .about {
+            background: rgba(10, 31, 61, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .personal-info {
+            margin-top: 30px;
+        }
+        
+        .personal-info h4 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+            font-size: 1.3rem;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .info-item {
+            display: flex;
+        }
+        
+        .info-item span:first-child {
+            font-weight: 600;
+            min-width: 150px;
+            color: white;
+        }
+        
+        .info-item span:last-child {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .skill {
+            background: rgba(245, 166, 35, 0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            border: 1px solid rgba(245, 166, 35, 0.3);
+        }
+        
+        /* Experience Section */
+        .experience {
+            background: rgba(26, 62, 114, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--dark);
+            border: 4px solid var(--secondary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 3px solid var(--secondary);
+        }
+        
+        .timeline-content h3 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .timeline-content h4 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .timeline-content p.location {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .timeline-content ul {
+            margin-left: 20px;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .timeline-content ul li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        .timeline-content ul li::before {
+            content: '•';
+            color: var(--secondary);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        /* Education Section */
+        .education {
+            background: rgba(10, 31, 61, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .education-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 3px solid var(--secondary);
+        }
+        
+        .education-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .education-card h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .education-card h4 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .education-card p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 8px;
+        }
+        
+        .education-card a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .education-card a:hover {
+            text-decoration: underline;
+            transform: translateX(5px);
+        }
+        
+        /* Services Section */
+        .services {
+            background: rgba(26, 62, 114, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            border-top: 3px solid var(--secondary);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(245, 166, 35, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--secondary);
+            font-size: 2rem;
+            border: 2px solid rgba(245, 166, 35, 0.3);
+        }
+        
+        .service-card h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .service-card p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: rgba(10, 31, 61, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .contact-info p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(245, 166, 35, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--secondary);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            border: 2px solid rgba(245, 166, 35, 0.3);
+        }
+        
+        .contact-text h4 {
+            color: white;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-text p {
+            margin: 0;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(245, 166, 35, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(245, 166, 35, 0.3);
+        }
+        
+        .social-link:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .contact-form {
+            flex: 1;
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 3px solid var(--secondary);
+        }
+        
+        .contact-form h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: white;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background: rgba(255,255,255,0.15);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--secondary);
+            color: var(--dark);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .footer-link:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 31px;
+            }
+            
+            .left::after, .right::after {
+                left: 31px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h1 span {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--dark);
+                transition: all 0.3s ease;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero h1 span {
+                font-size: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin-right: 0;
+            }
+            
+            .btn-outline {
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="bg-container">
+        <img src="WhatsApp Image 2025-05-30 at 2.41.06 PM.jpeg" alt="CPEC Background" class="bg-image">
+    </div>
+    <div class="overlay"></div>
+    
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Obaid <span>Ullah</span></a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav id="navMenu">
+                    <ul>
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Obaid Ullah<br><span>Business Facilitator | Investor Relations</span></h1>
+                <p>I am a seasoned professional serving as a Business Facilitator on behalf of the Board of Investment (BoI), Government of Pakistan, actively supporting the Special Investment Facilitation Council (SIFC). With a strong background in protocol, administration, and investor relations, I focus on building robust bilateral networks—particularly with Chinese investors and enterprises—to promote and enable investment in Pakistan's Special Economic Zones (SEZs) and key national projects.</p>
+                <div>
+                    <a href="#contact" class="btn">Get In Touch</a>
+                    <a href="#services" class="btn btn-outline">My Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Administrative Assistant with five years of expertise in government protocol, diplomacy, and office management.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/500x600" alt="Obaid Ullah">
+                </div>
+                <div class="about-text">
+                    <h3>Professional Profile</h3>
+                    <p>Skilled in event coordination, travel planning, procurement, and contract negotiation. A detail-oriented professional adept at multitasking, ensuring seamless operations, and upholding high standards of professionalism.</p>
+                    <p>I act as a liaison between government stakeholders and foreign investors, coordinating B2B forums such as the Pakistan-China Business Investment Forum (PCBIF) and facilitating high-level visits, SEZ marketing events, and investor onboarding processes. My role supports the strategic mission of the SIFC: to fast-track foreign direct investment (FDI) and strengthen economic partnerships through streamlined, investor-centric facilitation.</p>
+                    
+                    <div class="personal-info">
+                        <h4>Personal Information</h4>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span>Name:</span>
+                                <span>Obaid Ullah</span>
+                            </div>
+                            <div class="info-item">
+                                <span>Date of Birth:</span>
+                                <span>August 6, 1986</span>
+                            </div>
+                            <div class="info-item">
+                                <span>Nationality:</span>
+                                <span>Pakistani</span>
+                            </div>
+                            <div class="info-item">
+                                <span>Languages:</span>
+                                <span>Pashto, Urdu, English</span>
+                            </div>
+                            <div class="info-item">
+                                <span>Email:</span>
+                                <span>obaid.ahrc@gmail.com<br>obaidkhan.boi@gmail.com</span>
+                            </div>
+                            <div class="info-item">
+                                <span>Phone:</span>
+                                <span>+92 302 5239359<br>+92 315 6816186</span>
+                            </div>
+                            <div class="info-item">
+                                <span>Address:</span>
+                                <span>BOI, Office# 405 4th Floor Evacuee Trust Complex F-5/1, Islamabad, Pakistan</span>
+                            </div>
+                            <div class="info-item">
+                                <span>Passport:</span>
+                                <span>AS2742343</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4 style="margin-top: 30px; color: var(--secondary);">Key Skills</h4>
+                    <div class="skills">
+                        <div class="skill">Government Protocol</div>
+                        <div class="skill">Diplomacy</div>
+                        <div class="skill">Office Management</div>
+                        <div class="skill">Event Coordination</div>
+                        <div class="skill">Investor Relations</div>
+                        <div class="skill">Travel Planning</div>
+                        <div class="skill">Procurement</div>
+                        <div class="skill">Contract Negotiation</div>
+                        <div class="skill">B2B Networking</div>
+                        <div class="skill">SEZ Promotion</div>
+                        <div class="skill">Public-Private Partnerships</div>
+                        <div class="skill">Multilingual Communication</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Work Experience</h2>
+                <p>My professional journey through the years</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Administrative Assistant</h3>
+                        <h4>Prime Minister office, Board of Investment</h4>
+                        <p class="location">October 2021 - Present | Islamabad, Pakistan</p>
+                        <ul>
+                            <li>Facilitating and coordinating B2B investment conferences, Pakistan China Business Investment Forum (PCBIF) events, and Special Economic Zones (SEZs) committee meetings pertaining to B2B collaboration and marketing of Special Economic Zones of Pakistan.</li>
+                            <li>Planned, coordinated and implemented high level civilian visits that support the Leadership and Management Program.</li>
+                            <li>Established and maintained cooperative working relationships by networking with visitors from China, Prime Minister office, investors, government departments, industry, staff elements, action officers, outside Protocol personnel and other government employees.</li>
+                            <li>Maintain records of all materials, supplies, and equipment received and issued.</li>
+                            <li>Conduct regular stock-taking and ensure proper documentation of stock levels.</li>
+                            <li>Monitor stock levels and initiate procurement requests when necessary.</li>
+                            <li>Receive materials and verify them against purchase orders and invoices.</li>
+                            <li>Inspect the quality and quantity of received items to ensure compliance with specifications.</li>
+                            <li>Report any discrepancies or damaged goods to the appropriate authority.</li>
+                            <li>Ensure adherence to government rules, policies, and procedures in stock management.</li>
+                            <li>Assist in internal and external audits by providing necessary documentation and reports.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Strategic Consultant</h3>
+                        <h4>China-Pakistan Investment Partnerships</h4>
+                        <p class="location">Recent Projects | Islamabad, Pakistan</p>
+                        <ul>
+                            <li>Specialize in bridging Chinese investors with Pakistan's strategic development priorities.</li>
+                            <li>Build strategic networks across government agencies and industry, leveraging close engagement with the Board of Investment (BOI), the Special Investment Facilitation Council (SIFC), and public/private stakeholders.</li>
+                            <li>Facilitated foreign direct investment into Pakistan's priority sectors – especially mine & minerals, textile, and technology.</li>
+                            <li>Supported projects in several Special Economic Zones.</li>
+                            <li>Translate complex policy frameworks into clear action plans for Chinese companies navigating Pakistan's regulatory landscape.</li>
+                            <li>Maintain direct access to senior officials at BOI and SIFC.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Assistant Manager HR</h3>
+                        <h4>TelcoNet (Pvt)</h4>
+                        <p class="location">June 2016 - September 2021 | Islamabad, Pakistan</p>
+                        <ul>
+                            <li>Recruiting, short-listing, interviewing, and training new staff members.</li>
+                            <li>Managed employee relations and performance evaluation processes.</li>
+                            <li>Developed and implemented HR policies and procedures.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Coordinator of IRRC Replication Model</h3>
+                        <h4>Akhtar Hameed Khan Memorial Trust</h4>
+                        <p class="location">December 2012 - December 2015 | Rawalpindi, Pakistan</p>
+                        <ul>
+                            <li>Preparation of plans and programs for waste management for six municipalities.</li>
+                            <li>Preparation of annual programs for municipalities with existing waste management plans.</li>
+                            <li>Conducted training courses on implementation of the Integrated Resource Recovery Center (IRRC) model for waste management.</li>
+                            <li>Prepared guidance book on IRRC model implementation.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education & Training</h2>
+                <p>My academic background and professional development</p>
+            </div>
+            
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3>MSc. Government & Public Policy</h3>
+                    <h4>National Defence University</h4>
+                    <p>March 2009 - June 2011</p>
+                    <p>Islamabad, Pakistan</p>
+                    <p>EQF level 7</p>
+                    <a href="https://ndu.edu.pk/" target="_blank">Visit University Website <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                
+                <div class="education-card">
+                    <h3>Bachelor of Arts</h3>
+                    <h4>University of Malakand</h4>
+                    <p>April 2004 - July 2007</p>
+                    <p>Lower Dir, Pakistan</p>
+                    <p>EQF level 6</p>
+                    <a href="https://www.uom.edu.pk/" target="_blank">Visit University Website <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                
+                <div class="education-card">
+                    <h3>Intermediate</h3>
+                    <h4>Boards of Intermediate and Secondary Education Peshawar</h4>
+                    <p>August 2002 - July 2004</p>
+                    <p>Peshawar, Pakistan</p>
+                    <p>EQF level 4</p>
+                    <a href="https://www.bisep.edu.pk/" target="_blank">Visit Board Website <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                
+                <div class="education-card">
+                    <h3>Secondary School Certificate</h3>
+                    <h4>Boards of Intermediate and Secondary Education Swat</h4>
+                    <p>March 2000 - March 2002</p>
+                    <p>Swat, Pakistan</p>
+                    <p>EQF level 4</p>
+                    <a href="https://www.bisess.edu.pk/site/" target="_blank">Visit Board Website <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+                <p>How I can help you with your investment needs in Pakistan</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Investor Facilitation</h3>
+                    <p>Comprehensive support for foreign investors navigating Pakistan's investment landscape, including government liaison and regulatory guidance.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>China-Pakistan Networking</h3>
+                    <p>Strategic business matchmaking between Chinese investors and Pakistani enterprises across key sectors.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3>SEZ Promotion</h3>
+                    <p>End-to-end support for investment in Pakistan's Special Economic Zones, including site selection and incentive optimization.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>B2B Conference Management</h3>
+                    <p>Full-service coordination of investment forums and business matchmaking events, particularly for China-Pakistan collaborations.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>High-Level Protocol</h3>
+                    <p>Meticulous planning and execution of high-profile visits, meetings, and diplomatic engagements.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Public-Private Partnerships</h3>
+                    <p>Strategic advisory services for structuring successful collaborations between government and private investors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+                <p>Get in touch to discuss investment opportunities in Pakistan</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>Whether you're exploring opportunities within Pakistan's investment landscape or need a dedicated point of contact to navigate government processes, I'm here to assist. Reach out to schedule a consultation or explore synergies for mutual economic benefit.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Office Address</h4>
+                                <p>BOI, Office# 405, 4th Floor<br>Evacuee Trust Complex F-5/1<br>Islamabad 44000, Pakistan</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>obaid.ahrc@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+92 315 6816186</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4 style="margin-top: 30px; color: var(--secondary);">Connect With Me</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#home" class="footer-link">Home</a>
+                    <a href="#about" class="footer-link">About</a>
+                    <a href="#services" class="footer-link">Services</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
+                <p class="copyright">© 2025 Obaid Ullah. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Active link highlighting
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav ul li a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 300) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the form data to a server
+            // For demonstration, we'll just show an alert
+            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
